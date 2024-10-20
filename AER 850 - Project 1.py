@@ -5,6 +5,7 @@ df=pandas.read_csv('Project_1_Data.csv')
 
 #Step 2: Data Visualization
 
+print("")
 print("Statistical Analysis")
 print(df[['X', 'Y', 'Z']].describe())
 
@@ -15,16 +16,22 @@ plt.figure(figsize=(12, 4))
 plt.subplot(1, 3, 1)
 plt.hist(df['X'], bins=20, color='red',edgecolor='white')
 plt.title('X-Coordinate Distribution')
+plt.xlabel("X-Value")
+plt.ylabel("Frequency")
 
 # Plot for Y coordinate
 plt.subplot(1, 3, 2)
 plt.hist(df['Y'], bins=20, color='green',edgecolor='white')
 plt.title('Y-Coordinate Distribution')
+plt.xlabel("Y-Value")
+plt.ylabel("Frequency")
 
 # Plot for Z coordinate
 plt.subplot(1, 3, 3)
 plt.hist(df['Z'], bins=20, color='blue',edgecolor='white')
 plt.title('Z-Coordinate Distribution')
+plt.xlabel("Z-Value")
+plt.ylabel("Frequency")
 
 plt.tight_layout()
 plt.show()
