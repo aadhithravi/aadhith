@@ -19,14 +19,12 @@ plt.title('X-Coordinate Distribution')
 plt.xlabel("X-Value")
 plt.ylabel("Frequency")
 
-# Plot for Y coordinate
 plt.subplot(1, 3, 2)
 plt.hist(df['Y'], bins=20, color='green',edgecolor='white')
 plt.title('Y-Coordinate Distribution')
 plt.xlabel("Y-Value")
 plt.ylabel("Frequency")
 
-# Plot for Z coordinate
 plt.subplot(1, 3, 3)
 plt.hist(df['Z'], bins=20, color='blue',edgecolor='white')
 plt.title('Z-Coordinate Distribution')
