@@ -25,7 +25,10 @@ plt.title('Y-Coordinate Distribution')
 plt.xlabel("Y-Value")
 plt.ylabel("Frequency")
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d6c183a02a5291a54f6e166b2290c8abf0f5c02e
 plt.subplot(1, 3, 3)
 plt.hist(df['Z'], bins=20, color='blue',edgecolor='white')
 plt.title('Z-Coordinate Distribution')
