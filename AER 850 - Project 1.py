@@ -55,7 +55,7 @@ from sklearn.linear_model import LogisticRegression
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 random_forest = RandomForestClassifier()
-log_reg = LogisticRegression()
+log_reg = LogisticRegression(max_iter=20000)
 svc = SVC()
 
 param_grid_rf = {'n_estimators': [10, 50, 100], 'max_depth': [5, 10, 20]}
@@ -84,9 +84,11 @@ acc_log_reg = accuracy_score(y_test, y_pred_log_reg)
 acc_rf = accuracy_score(y_test, y_pred_rf)
 acc_svc = accuracy_score(y_test, y_pred_svc)
 
+print("")
 print(f'Logistic Regression Accuracy: {acc_log_reg}')
 print(f'Random Forest Accuracy: {acc_rf}')
 print(f'SVC Accuracy: {acc_svc}')
+print("")
 
 #Step 5: Model Performance Analysis
 
@@ -136,3 +138,21 @@ plt.title('Confusion Matrix for Stacked Model')
 plt.xlabel('Predicted')
 plt.ylabel('Actual')
 plt.show()
+
+#Step 7: Model Evaluation
+
+import joblib
+
+model_filename = 'stacked_model.joblib'
+
+joblib.dump(stacked_model, model_filename)
+
+loaded_model = joblib.load(model_filename)
+
+new_xyz = [[9.375, 3.0625, 1.51], [6.995, 5.125, 0.3875], [0, 3.0625, 1.93], [9.4, 3, 1.8], [9.4, 3, 1.3]]
+
+corr_maintenance_steps = loaded_model.predict(new_xyz)
+
+print("Predicted Maintenance Steps For New Coordinates:",corr_maintenance_steps)
+print("")
+print("")
