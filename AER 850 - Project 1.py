@@ -19,14 +19,13 @@ plt.title('X-Coordinate Distribution')
 plt.xlabel("X-Value")
 plt.ylabel("Frequency")
 
-# Plot for Y coordinate
 plt.subplot(1, 3, 2)
 plt.hist(df['Y'], bins=20, color='green',edgecolor='white')
 plt.title('Y-Coordinate Distribution')
 plt.xlabel("Y-Value")
 plt.ylabel("Frequency")
 
-# Plot for Z coordinate
+
 plt.subplot(1, 3, 3)
 plt.hist(df['Z'], bins=20, color='blue',edgecolor='white')
 plt.title('Z-Coordinate Distribution')
@@ -34,6 +33,21 @@ plt.xlabel("Z-Value")
 plt.ylabel("Frequency")
 
 plt.tight_layout()
+plt.show()
+
+average_positions = df.groupby('Step')[['X', 'Y', 'Z']].mean().reset_index()
+fig=plt.figure(figsize=(14,20))
+axis=fig.add_subplot(111,projection='3d')
+
+scatter = axis.scatter(average_positions['X'], average_positions['Y'], average_positions['Z'], c=average_positions['Step'], cmap='viridis', s=100, edgecolor='black')
+axis.set_xlabel('X-Coordinate',fontsize=15)
+axis.set_ylabel('Y-Coordinate',fontsize=15)
+axis.set_zlabel('Z-Coordinate',fontsize=15)
+axis.set_title('Average Position of Each Step',fontsize=25)
+
+legend_elements, _ = scatter.legend_elements()  
+axis.legend(legend_elements, [f'Step {int(step)}' for step in average_positions['Step']], title="Step", loc="upper right")
+
 plt.show()
 
 #Step 3: Correlation Matrix
