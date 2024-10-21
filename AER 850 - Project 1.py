@@ -1,3 +1,8 @@
+#Aadhith Ravi
+#501045029
+#AER850 - Project 1
+
+
 # Step 1: Data Processing 
 import pandas as pandas
 
@@ -25,10 +30,6 @@ plt.title('Y-Coordinate Distribution')
 plt.xlabel("Y-Value")
 plt.ylabel("Frequency")
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d6c183a02a5291a54f6e166b2290c8abf0f5c02e
 plt.subplot(1, 3, 3)
 plt.hist(df['Z'], bins=20, color='blue',edgecolor='white')
 plt.title('Z-Coordinate Distribution')
@@ -76,7 +77,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=50)
 
 random_forest = RandomForestClassifier()
 log_reg = LogisticRegression(max_iter=20000)
